@@ -1,62 +1,48 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-19 21:01:00",
-    "workflow_name": "Teste Atualização GitHub Pages",
-    "workflow_version": "1.0.0",
-    "process_date": "2026-01-19"
+    "execution_timestamp": "2026-01-19 21:05:00",
+    "workflow_name": "Teste GitHub Pages Corrigido"
   },
   "summary": {
-    "total_routes_created": 1,
-    "total_routes_updated": 2,
+    "total_routes_created": 2,
+    "total_routes_updated": 1,
     "total_errors": 0
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-19 21:01:00",
+    "timestamp": "2026-01-19 21:05:00",
     "routes_created": [
       {
-        "route_code": "LIS-TESTE-01",
-        "orders_count": 3,
+        "route_code": "LIS-NOVO-01",
+        "orders_count": 5,
         "orders": [
-          "ORD-001",
-          "ORD-002",
-          "ORD-003"
+          "ORD-101",
+          "ORD-102",
+          "ORD-103",
+          "ORD-104",
+          "ORD-105"
         ],
-        "reason": "Nova rota criada para teste"
+        "reason": "Nova rota para zona Centro"
       }
     ],
-    "routes_updated": [
-      {
-        "route_code": "LIS-EXIST-01",
-        "orders_added": 2,
-        "reason": "Pedidos adicionados à rota existente"
-      }
-    ]
+    "routes_updated": []
   },
   "order_details": [
     {
-      "order_number": "ORD-001",
-      "client": "Cliente Teste A",
-      "address": "Rua das Flores 101, Lisboa",
+      "order_number": "ORD-101",
+      "client": "Cliente ABC",
+      "address": "Rua Augusta 50, Lisboa",
       "zone": "Centro",
-      "route_assigned": "LIS-TESTE-01",
-      "action": "added_to_new_route"
-    },
-    {
-      "order_number": "ORD-002",
-      "client": "Cliente Teste B",
-      "address": "Av. da Liberdade 200, Lisboa",
-      "zone": "Centro",
-      "route_assigned": "LIS-TESTE-01",
+      "route_assigned": "LIS-NOVO-01",
       "action": "added_to_new_route"
     }
   ],
   "trackpod_operations": [
     {
       "operation": "POST",
-      "route_code": "LIS-TESTE-01",
+      "route_code": "LIS-NOVO-01",
       "status": 201,
-      "response_message": "Route created successfully"
+      "response_message": "Route created"
     }
   ],
   "errors": [],
