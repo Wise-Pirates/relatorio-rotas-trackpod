@@ -1,60 +1,28 @@
 {
-  "meta": {
-    "execution_timestamp": "2026-01-19 00:13:00",
-    "workflow_name": "Otimização Automática de Rotas",
-    "workflow_version": "1.0.0",
-    "process_date": "2026-01-19",
-    "execution_mode": "automatic",
-    "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57389"
-  },
-  "summary": {
-    "total_routes_created": 0,
-    "total_routes_updated": 1,
-    "total_errors": 0,
-    "by_region": {
-      "Lisboa": 1
+  "report_url": "data:text/html;base64,CjwhRE9DVFlQRSBodG1sPgo8aHRtbD4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogIDx0aXRsZT5DYXJyZWdhbmRvIFJlbGF0w7NyaW8uLi48L3RpdGxlPgogIDxzdHlsZT4KICAgIGJvZHkgewogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAgaGVpZ2h0OiAxMDB2aDsKICAgICAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7CiAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxMzVkZWcsICM2NjdlZWEgMCUsICM3NjRiYTIgMTAwJSk7CiAgICAgIGNvbG9yOiB3aGl0ZTsKICAgIH0KICAgIC5sb2FkZXIgewogICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICB9CiAgICAuc3Bpbm5lciB7CiAgICAgIGJvcmRlcjogOHB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4zKTsKICAgICAgYm9yZGVyLXRvcDogOHB4IHNvbGlkIHdoaXRlOwogICAgICBib3JkZXItcmFkaXVzOiA1MCU7CiAgICAgIHdpZHRoOiA2MHB4OwogICAgICBoZWlnaHQ6IDYwcHg7CiAgICAgIGFuaW1hdGlvbjogc3BpbiAxcyBsaW5lYXIgaW5maW5pdGU7CiAgICAgIG1hcmdpbjogMCBhdXRvIDIwcHg7CiAgICB9CiAgICBAa2V5ZnJhbWVzIHNwaW4gewogICAgICAwJSB7IHRyYW5zZm9ybTogcm90YXRlKDBkZWcpOyB9CiAgICAgIDEwMCUgeyB0cmFuc2Zvcm06IHJvdGF0ZSgzNjBkZWcpOyB9CiAgICB9CiAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KICA8ZGl2IGNsYXNzPSJsb2FkZXIiPgogICAgPGRpdiBjbGFzcz0ic3Bpbm5lciI+PC9kaXY+CiAgICA8aDI+8J+TiiBHZXJhbmRvIHJlbGF0w7NyaW8uLi48L2gyPgogIDwvZGl2PgogIAogIDxzY3JpcHQ+CiAgICAvLyBEZWNvZGlmaWNhciBvIGxvZyBkbyBCYXNlNjQKICAgIGNvbnN0IGJhc2U2NExvZyA9ICdleUpvWldGa1pYSnpJanA3SW1odmMzUWlPaUp3Y21sdFlYSjVMWEJ5YjJSMVkzUnBiMjR0TUdabE4yUXVkWEF1Y21GcGJIZGhlUzVoY0hBaUxDSjFjMlZ5TFdGblpXNTBJam9pWVhocGIzTXZNUzR4TWk0d0lpd2lZMjl1ZEdWdWRDMXNaVzVuZEdnaU9pSXhNamN6SWl3aVlXTmpaWEIwSWpvaVlYQndiR2xqWVhScGIyNHZhbk52Yml4MFpYaDBMMmgwYld3c1lYQndiR2xqWVhScGIyNHZlR2gwYld3cmVHMXNMR0Z3Y0d4cFkyRjBhVzl1TDNodGJDeDBaWGgwTHlvN2NUMHdMamtzSUNvdktqdHhQVEF1TVNJc0ltRmpZMlZ3ZEMxbGJtTnZaR2x1WnlJNkltZDZhWEFzSUdOdmJYQnlaWE56TENCa1pXWnNZWFJsTENCaWNpSXNJbU52Ym5SbGJuUXRkSGx3WlNJNkltRndjR3hwWTJGMGFXOXVMMnB6YjI0aUxDSjRMV1p2Y25kaGNtUmxaQzFtYjNJaU9pSXpOQzQzTGpFM055NDROQ0lzSW5ndFptOXlkMkZ5WkdWa0xXaHZjM1FpT2lKd2NtbHRZWEo1TFhCeWIyUjFZM1JwYjI0dE1HWmxOMlF1ZFhBdWNtRnBiSGRoZVM1aGNIQWlMQ0o0TFdadmNuZGhjbVJsWkMxd2NtOTBieUk2SW1oMGRIQnpJaXdpZUMxeVlXbHNkMkY1TFdWa1oyVWlPaUp5WVdsc2QyRjVMMlYxY205d1pTMTNaWE4wTkMxa2NtRnRjek5oSWl3aWVDMXlZV2xzZDJGNUxYSmxjWFZsYzNRdGFXUWlPaUpMY2pWU1oyeFJjRkpEUXpnd2JGUlhUamhPWDBabklpd2llQzF5WldGc0xXbHdJam9pTXpRdU55NHhOemN1T0RRaUxDSjRMWEpsY1hWbGMzUXRjM1JoY25RaU9pSXhOelk0T0RJM01UVXdNVFl5SW4wc0luQmhjbUZ0Y3lJNmUzMHNJbkYxWlhKNUlqcDdmU3dpWW05a2VTSTZleUppYjJSNUlqb2llMXdpYldWMFlWd2lPbnRjSW1WNFpXTjFkR2x2Ymw5MGFXMWxjM1JoYlhCY0lqcGNJakl3TWpZdE1ERXRNVGtnTVRJNk5USTZNekJjSWl4Y0luZHZjbXRtYkc5M1gyNWhiV1ZjSWpwY0lrOTBhVzFwZW1IRHA4T2pieUJCZFhSdmJjT2hkR2xqWVNCa1pTQlNiM1JoYzF3aUxGd2lkMjl5YTJac2IzZGZkbVZ5YzJsdmJsd2lPbHdpTVM0d0xqQmNJaXhjSW5CeWIyTmxjM05mWkdGMFpWd2lPbHdpTWpBeU5pMHdNUzB4T1Z3aUxGd2laWGhsWTNWMGFXOXVYMjF2WkdWY0lqcGNJbUYxZEc5dFlYUnBZMXdpTEZ3aWQyOXlhMlpzYjNkZmFXUmNJanBjSW1JeFkyNWFXVTVCYW1GS2FFb3dXakJjSWl4Y0ltVjRaV04xZEdsdmJsOXBaRndpT2x3aU5UYzBNREpjSW4wc1hDSnpkVzF0WVhKNVhDSTZlMXdpZEc5MFlXeGZjbTkxZEdWelgyTnlaV0YwWldSY0lqb3dMRndpZEc5MFlXeGZjbTkxZEdWelgzVndaR0YwWldSY0lqb3hMRndpZEc5MFlXeGZaWEp5YjNKelhDSTZNQ3hjSW1KNVgzSmxaMmx2Ymx3aU9udGNJazkwYUdWeVhDSTZNWDBzWENKaWVWOTZiMjVsWENJNmUxd2lRbkpoWjJGdXc2ZGhYQ0k2TVgxOUxGd2lZV2xmWkdWamFYTnBiMjV6WENJNmUxd2liVzlrWld4ZmRYTmxaRndpT2x3aVozQjBMVFJ2WENJc1hDSjBhVzFsYzNSaGJYQmNJanBjSWpJd01qWXRNREV0TVRrZ01USTZOVEk2TXpCY0lpeGNJbkp2ZFhSbGMxOWpjbVZoZEdWa1hDSTZXMTBzWENKeWIzVjBaWE5mZFhCa1lYUmxaRndpT2x0N1hDSnliM1YwWlY5amIyUmxYQ0k2WENKU01ERXpOVE0zWENJc1hDSnZjbVJsY25OZllXUmtaV1JjSWpveExGd2liM0prWlhKelgzUnZYMkZrWkZ3aU9sdGNJbFJGVTFRdFYxQXRNREF4WENKZExGd2ljbVZoYzI5dVhDSTZYQ0pRWldScFpHOXpJR0ZrYVdOcGIyNWhaRzl6SU1PZ0lISnZkR0VnWlhocGMzUmxiblJsWENKOVhTeGNJbUZwWDI1dmRHVnpYQ0k2WENKUWNtOWpaWE56WVcxbGJuUnZJR0YxZEc5dHc2RjBhV052WENKOUxGd2liM0prWlhKZlpHVjBZV2xzYzF3aU9sdDdYQ0p2Y21SbGNsOXVkVzFpWlhKY0lqcGNJbFJGVTFRdFYxQXRNREF4WENJc1hDSmpiR2xsYm5SY0lqcGNJa05zYVdWdWRHVWdWR1Z6ZEdVZ1FuSmhaMkZ1dzZkaFhDSXNYQ0poWkdSeVpYTnpYQ0k2WENKU2RXRWdWR1Z6ZEdVZ01USXpMQ0JDY21GbllXN0RwMkZjSWl4Y0lucHZibVZjSWpwY0lrSnlZV2RoYnNPbllWd2lMRndpY205MWRHVmZZWE56YVdkdVpXUmNJanBjSWxJd01UTTFNemRjSWl4Y0ltRmpkR2x2Ymx3aU9sd2lZV1JrWldSZmRHOWZaWGhwYzNScGJtZGZjbTkxZEdWY0lpeGNJblJwYldWemRHRnRjRndpT2x3aU1qQXlOaTB3TVMweE9TQXhNam8xTWpvek1Gd2lmVjBzWENKMGNtRmphM0J2WkY5dmNHVnlZWFJwYjI1elhDSTZXM3RjSW05d1pYSmhkR2x2Ymx3aU9sd2lVRlZVWENJc1hDSnliM1YwWlY5amIyUmxYQ0k2WENKU01ERXpOVE0zWENJc1hDSnZjbVJsY2w5dWRXMWlaWEpjSWpwY0lsUkZVMVF0VjFBdE1EQXhYQ0lzWENKemRHRjBkWE5jSWpveU1ESXNYQ0p5WlhOd2IyNXpaVjlqYjJSbFhDSTZNakF5TEZ3aWNtVnpjRzl1YzJWZmJXVnpjMkZuWlZ3aU9sd2lUM0prWlhJZ2QyRnpJRzF2ZG1Wa0lITjFZMk5sYzNObWRXeHNlVndpTEZ3aWRHbHRaWE4wWVcxd1hDSTZYQ0l5TURJMkxUQXhMVEU1SURFeU9qVXlPak13WENKOVhTeGNJbVZ5Y205eWMxd2lPbHRkTEZ3aWQyRnlibWx1WjNOY0lqcGJYWDBpZlN3aWQyVmlhRzl2YTFWeWJDSTZJbWgwZEhCek9pOHZjSEpwYldGeWVTMXdjbTlrZFdOMGFXOXVMVEJtWlRka0xuVndMbkpoYVd4M1lYa3VZWEJ3TDNkbFltaHZiMnN2WjJWeVlYSXRjbVZzWVhSdmNtbHZMV1JwY21WMGJ5MXdjbThpTENKbGVHVmpkWFJwYjI1TmIyUmxJam9pY0hKdlpIVmpkR2x2YmlKOSc7CiAgICBjb25zdCBsb2dKc29uID0gYXRvYihiYXNlNjRMb2cpOwogICAgY29uc3QgbG9nID0gSlNPTi5wYXJzZShsb2dKc29uKTsKICAgIAogICAgLy8gRmF6ZXIgUE9TVCBwYXJhIG8gd2ViaG9vawogICAgZmV0Y2goJ2h0dHBzOi8vcHJpbWFyeS1wcm9kdWN0aW9uLTBmZTdkLnVwLnJhaWx3YXkuYXBwL3dlYmhvb2svZ2VyYXItcmVsYXRvcmlvLWRpcmV0by1wcm8nLCB7CiAgICAgIG1ldGhvZDogJ1BPU1QnLAogICAgICBoZWFkZXJzOiB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSwKICAgICAgYm9keTogSlNPTi5zdHJpbmdpZnkobG9nKQogICAgfSkKICAgIC50aGVuKHJlc3BvbnNlID0+IHJlc3BvbnNlLnRleHQoKSkKICAgIC50aGVuKGh0bWwgPT4gewogICAgICAvLyBTdWJzdGl0dWlyIGEgcMOhZ2luYSBhdHVhbCBwZWxvIHJlbGF0w7NyaW8KICAgICAgZG9jdW1lbnQub3BlbigpOwogICAgICBkb2N1bWVudC53cml0ZShodG1sKTsKICAgICAgZG9jdW1lbnQuY2xvc2UoKTsKICAgIH0pCiAgICAuY2F0Y2goZXJyb3IgPT4gewogICAgICBkb2N1bWVudC5ib2R5LmlubmVySFRNTCA9ICc8aDE+4p2MIEVycm8gYW8gZ2VyYXIgcmVsYXTDs3JpbzwvaDE+PHA+JyArIGVycm9yLm1lc3NhZ2UgKyAnPC9wPic7CiAgICB9KTsKICA8L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+Cg==",
+  "webhook_url": "https://primary-production-0fe7d.up.railway.app/webhook/gerar-relatorio-direto-pro",
+  "log_data": {
+    "headers": {
+      "host": "primary-production-0fe7d.up.railway.app",
+      "user-agent": "axios/1.12.0",
+      "content-length": "1273",
+      "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, */*;q=0.1",
+      "accept-encoding": "gzip, compress, deflate, br",
+      "content-type": "application/json",
+      "x-forwarded-for": "34.7.177.84",
+      "x-forwarded-host": "primary-production-0fe7d.up.railway.app",
+      "x-forwarded-proto": "https",
+      "x-railway-edge": "railway/europe-west4-drams3a",
+      "x-railway-request-id": "Kr5RglQpRCC80lTWN8N_Fg",
+      "x-real-ip": "34.7.177.84",
+      "x-request-start": "1768827150162"
     },
-    "by_zone": {
-      "Parque das Nações": 1
-    }
-  },
-  "ai_decisions": {
-    "model_used": "gpt-4o",
-    "timestamp": "2026-01-19 00:13:00",
-    "routes_created": [],
-    "routes_updated": [
-      {
-        "route_code": "LIS-03",
-        "orders_added": 1,
-        "orders_to_add": ["TEST-LIS-PARQUE-001"],
-        "reason": "Pedidos adicionados à rota existente"
-      }
-    ],
-    "ai_notes": "Processamento automático"
-  },
-  "order_details": [
-    {
-      "order_number": "TEST-LIS-PARQUE-001",
-      "client": "Cliente Parque Nações",
-      "address": "Alameda dos Oceanos 100, Lisboa",
-      "zone": "Parque das Nações",
-      "route_assigned": "LIS-03",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-19 00:13:00"
-    }
-  ],
-  "trackpod_operations": [
-    {
-      "operation": "PUT",
-      "route_code": "LIS-03",
-      "order_number": "TEST-LIS-PARQUE-001",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-19 00:13:00"
-    }
-  ],
-  "errors": [],
-  "warnings": []
+    "params": {},
+    "query": {},
+    "body": {
+      "body": "{\"meta\":{\"execution_timestamp\":\"2026-01-19 12:52:30\",\"workflow_name\":\"Otimização Automática de Rotas\",\"workflow_version\":\"1.0.0\",\"process_date\":\"2026-01-19\",\"execution_mode\":\"automatic\",\"workflow_id\":\"b1cnZYNAjaJhJ0Z0\",\"execution_id\":\"57402\"},\"summary\":{\"total_routes_created\":0,\"total_routes_updated\":1,\"total_errors\":0,\"by_region\":{\"Other\":1},\"by_zone\":{\"Bragança\":1}},\"ai_decisions\":{\"model_used\":\"gpt-4o\",\"timestamp\":\"2026-01-19 12:52:30\",\"routes_created\":[],\"routes_updated\":[{\"route_code\":\"R013537\",\"orders_added\":1,\"orders_to_add\":[\"TEST-WP-001\"],\"reason\":\"Pedidos adicionados à rota existente\"}],\"ai_notes\":\"Processamento automático\"},\"order_details\":[{\"order_number\":\"TEST-WP-001\",\"client\":\"Cliente Teste Bragança\",\"address\":\"Rua Teste 123, Bragança\",\"zone\":\"Bragança\",\"route_assigned\":\"R013537\",\"action\":\"added_to_existing_route\",\"timestamp\":\"2026-01-19 12:52:30\"}],\"trackpod_operations\":[{\"operation\":\"PUT\",\"route_code\":\"R013537\",\"order_number\":\"TEST-WP-001\",\"status\":202,\"response_code\":202,\"response_message\":\"Order was moved successfully\",\"timestamp\":\"2026-01-19 12:52:30\"}],\"errors\":[],\"warnings\":[]}"
+    },
+    "webhookUrl": "https://primary-production-0fe7d.up.railway.app/webhook/gerar-relatorio-direto-pro",
+    "executionMode": "production"
+  }
 }
