@@ -1,60 +1,89 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-19 21:39:57",
+    "execution_timestamp": "2026-01-20 07:00:03",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
-    "process_date": "2026-01-19",
+    "process_date": "2026-01-20",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57474"
+    "execution_id": "57482"
   },
   "summary": {
-    "total_routes_created": 0,
-    "total_routes_updated": 1,
+    "total_routes_created": 1,
+    "total_routes_updated": 0,
     "total_errors": 0,
     "by_region": {
       "Other": 1
     },
     "by_zone": {
-      "Porto": 1
+      "Porto": 4
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-19 21:39:57",
-    "routes_created": [],
-    "routes_updated": [
+    "timestamp": "2026-01-20 07:00:03",
+    "routes_created": [
       {
-        "route_code": "R013537",
-        "orders_added": 1,
-        "orders_to_add": [
-          "NOVO-TESTESE-002"
+        "route_code": "UNKNOWN",
+        "orders_count": 4,
+        "orders": [
+          "FINAL-TEST-004",
+          "FINAL-TEST-003",
+          "FINAL-TEST-002",
+          "FINAL-TEST-001"
         ],
-        "reason": "Pedidos adicionados à rota existente"
+        "reason": "Nova rota criada"
       }
     ],
+    "routes_updated": [],
     "ai_notes": "Processamento automático"
   },
   "order_details": [
     {
-      "order_number": "NOVO-TESTESE-002",
-      "client": "Cliente 2",
-      "address": "Rua 2, Porto",
+      "order_number": "FINAL-TEST-004",
+      "client": "Cliente Final 4",
+      "address": "Praça da Liberdade 400, Porto",
       "zone": "Porto",
-      "route_assigned": "R013537",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-19 21:39:57"
+      "route_assigned": "UNKNOWN",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-20 07:00:03"
+    },
+    {
+      "order_number": "FINAL-TEST-003",
+      "client": "Cliente Final 3",
+      "address": "Rua Santa Catarina 300, Porto",
+      "zone": "Porto",
+      "route_assigned": "UNKNOWN",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-20 07:00:03"
+    },
+    {
+      "order_number": "FINAL-TEST-002",
+      "client": "Cliente Final 2",
+      "address": "Avenida dos Aliados 200, Porto",
+      "zone": "Porto",
+      "route_assigned": "UNKNOWN",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-20 07:00:03"
+    },
+    {
+      "order_number": "FINAL-TEST-001",
+      "client": "Cliente Final 1",
+      "address": "Rua das Flores 100, Porto",
+      "zone": "Porto",
+      "route_assigned": "UNKNOWN",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-20 07:00:03"
     }
   ],
   "trackpod_operations": [
     {
-      "operation": "PUT",
-      "route_code": "R013537",
-      "order_number": "NOVO-TESTESE-002",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-19 21:39:57"
+      "operation": "POST",
+      "route_code": "UNKNOWN",
+      "order_number": null,
+      "status": "unknown",
+      "response_message": "OK",
+      "timestamp": "2026-01-20 07:00:03"
     }
   ],
   "errors": [],
