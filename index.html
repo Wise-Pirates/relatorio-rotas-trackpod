@@ -293,13 +293,7 @@
 
         html += '</div>';
       }
-      if (operations.length > 0) {
-        html += '<div class="section"><h2 class="section-title">✅ Operações no Track-POD</h2><table><thead><tr><th>Operação</th><th>Rota</th><th>Pedido</th><th>Status</th><th>Mensagem</th></tr></thead><tbody>';
-        operations.forEach(op => {
-          html += '<tr><td><strong>' + op.operation + '</strong></td><td>' + op.route_code + '</td><td>' + (op.order_number || 'N/A') + '</td><td><span class="' + (op.status >= 200 && op.status < 300 ? 'success' : 'error') + '">' + (op.status >= 200 && op.status < 300 ? '✅' : '❌') + ' ' + op.status + '</span></td><td>' + (op.response_message || 'OK') + '</td></tr>';
-        });
-        html += '</tbody></table></div>';
-      }
+      // Seção "Operações no Track-POD" removida
       if (errors.length > 0) {
         html += '<div class="section"><h2 class="section-title">❌ Erros (' + errors.length + ')</h2>';
         errors.forEach(error => {
