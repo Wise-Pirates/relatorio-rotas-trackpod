@@ -1,18 +1,18 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-21 12:29:10",
+    "execution_timestamp": "2026-01-21 14:16:44",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
     "process_date": "2026-01-21",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57570",
+    "execution_id": "57574",
     "first_execution": "2026-01-21 10:28:49"
   },
   "summary": {
     "total_routes_created": 1,
-    "total_routes_updated": 2,
-    "total_orders_processed": 10,
+    "total_routes_updated": 3,
+    "total_orders_processed": 11,
     "total_errors": 0,
     "by_region": {
       "Lisboa": 1
@@ -20,14 +20,14 @@
     "by_zone": {
       "Saldanha": 1,
       "Lisboa Centro": 1,
-      "Unknown": 4,
+      "Unknown": 5,
       "Lisboa": 1,
       "Baixa": 3
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-21 12:29:10",
+    "timestamp": "2026-01-21 14:16:44",
     "routes_created": [
       {
         "route_code": "LIS-NEW-01",
@@ -59,6 +59,14 @@
         "orders_to_add": [
           "TEST-019",
           "TEST-008"
+        ],
+        "reason": "Pedidos adicionados à rota existente"
+      },
+      {
+        "route_code": "LIS-NEW-01",
+        "orders_added": 1,
+        "orders_to_add": [
+          "TEST-026"
         ],
         "reason": "Pedidos adicionados à rota existente"
       }
@@ -155,6 +163,15 @@
       "route_assigned": "LIS-NEW-01",
       "action": "added_to_new_route",
       "timestamp": "2026-01-21 12:29:10"
+    },
+    {
+      "order_number": "TEST-026",
+      "client": "Cliente Alfragide",
+      "address": "Rua de Alfragide 100, Amadora",
+      "zone": "",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 14:16:44"
     }
   ],
   "trackpod_operations": [
@@ -283,6 +300,15 @@
       "response_code": 201,
       "response_message": "Route was created successfully",
       "timestamp": "2026-01-21 12:29:10"
+    },
+    {
+      "operation": "PUT",
+      "route_code": "LIS-NEW-01",
+      "order_number": "TEST-026",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 14:16:44"
     }
   ],
   "errors": [],
