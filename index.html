@@ -242,8 +242,7 @@
   </div>
 
   <script>
-    const API_KEY = '1142518c-bae2-4299-8b2f-41da2f2431c9';
-    const API_BASE = 'https://api.track-pod.com';
+    const API_URL = 'https://primary-production-0fe7d.up.railway.app/webhook/relatorio-trackpod';
 
     // Set default date to today
     document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
@@ -257,34 +256,19 @@
       statusText.textContent = 'Buscando dados do Track-POD...';
 
       try {
-        // Fetch routes and orders in parallel
-        const [routesRes, ordersRes] = await Promise.all([
-          fetch(`${API_BASE}/Route/Date/${date}`, {
-            headers: { 'X-API-KEY': API_KEY }
-          }),
-          fetch(`${API_BASE}/Order/Date/${date}`, {
-            headers: { 'X-API-KEY': API_KEY }
-          })
-        ]);
+        const response = await fetch(`${API_URL}?date=${date}`);
 
-        if (!routesRes.ok || !ordersRes.ok) {
+        if (!response.ok) {
           throw new Error('Erro ao buscar dados da API');
         }
 
-        const routes = await routesRes.json();
-        const allOrders = await ordersRes.json();
+        const data = await response.json();
 
-        // Find orders without route
-        const ordersInRoutes = new Set();
-        routes.forEach(route => {
-          (route.Orders || []).forEach(order => {
-            ordersInRoutes.add(order.Number);
-          });
-        });
+        if (!data.success) {
+          throw new Error(data.error || 'Erro desconhecido');
+        }
 
-        const pendingOrders = allOrders.filter(order => !ordersInRoutes.has(order.Number));
-
-        renderReport(routes, pendingOrders, date);
+        renderReport(data);
 
         statusIndicator.className = 'status-indicator';
         const now = new Date().toLocaleTimeString('pt-PT');
@@ -298,19 +282,16 @@
       }
     }
 
-    function renderReport(routes, pendingOrders, date) {
+    function renderReport(data) {
       const content = document.getElementById('content');
-
-      // Calculate totals
-      let totalOrders = 0;
-      routes.forEach(route => {
-        totalOrders += (route.Orders || []).length;
-      });
+      const summary = data.summary || {};
+      const routes = data.routes || [];
+      const pendingOrders = data.pending_orders || [];
 
       let html = '<div class="stats-grid">';
-      html += `<div class="stat-card success"><div class="stat-value">${routes.length}</div><div class="stat-label">Rotas Criadas</div></div>`;
-      html += `<div class="stat-card"><div class="stat-value">${totalOrders}</div><div class="stat-label">Pedidos em Rotas</div></div>`;
-      html += `<div class="stat-card ${pendingOrders.length > 0 ? 'warning' : 'success'}"><div class="stat-value">${pendingOrders.length}</div><div class="stat-label">Pedidos Pendentes</div></div>`;
+      html += `<div class="stat-card success"><div class="stat-value">${summary.total_routes || 0}</div><div class="stat-label">Rotas Criadas</div></div>`;
+      html += `<div class="stat-card"><div class="stat-value">${summary.total_orders_in_routes || 0}</div><div class="stat-label">Pedidos em Rotas</div></div>`;
+      html += `<div class="stat-card ${pendingOrders.length > 0 ? 'warning' : 'success'}"><div class="stat-value">${summary.total_pending_orders || 0}</div><div class="stat-label">Pedidos Pendentes</div></div>`;
       html += '</div>';
 
       // Pending orders section (if any)
@@ -320,10 +301,10 @@
         html += '<table><thead><tr><th>Pedido</th><th>Cliente</th><th>Endereço</th><th>Zona</th></tr></thead><tbody>';
         pendingOrders.forEach(order => {
           html += `<tr>
-            <td><strong>${order.Number}</strong></td>
-            <td>${order.Client || 'N/A'}</td>
-            <td>${order.Address || 'N/A'}</td>
-            <td>${order.AddressZone || 'N/A'}</td>
+            <td><strong>${order.number}</strong></td>
+            <td>${order.client || 'N/A'}</td>
+            <td>${order.address || 'N/A'}</td>
+            <td>${order.zone || 'N/A'}</td>
           </tr>`;
         });
         html += '</tbody></table></div>';
@@ -332,36 +313,36 @@
       // Routes section
       if (routes.length > 0) {
         html += '<div class="section">';
-        html += `<h2 class="section-title">🚐 Rotas do Dia ${date} (${routes.length})</h2>`;
+        html += `<h2 class="section-title">🚐 Rotas do Dia ${data.date} (${routes.length})</h2>`;
 
         // Sort routes by code
-        routes.sort((a, b) => (a.Code || '').localeCompare(b.Code || ''));
+        routes.sort((a, b) => (a.code || '').localeCompare(b.code || ''));
 
         routes.forEach(route => {
-          const orders = route.Orders || [];
+          const orders = route.orders || [];
           html += '<div class="route-card">';
           html += '<div class="route-header">';
-          html += `<div class="route-code">🚐 ${route.Code}</div>`;
+          html += `<div class="route-code">🚐 ${route.code}</div>`;
           html += '<div class="route-badges">';
-          html += `<span class="route-badge">📦 ${orders.length} pedidos</span>`;
-          if (route.Depot) {
-            html += `<span class="route-badge depot">📍 ${route.Depot}</span>`;
+          html += `<span class="route-badge">📦 ${route.orders_count || orders.length} pedidos</span>`;
+          if (route.depot) {
+            html += `<span class="route-badge depot">📍 ${route.depot}</span>`;
           }
-          if (route.Status) {
-            html += `<span class="route-badge status">${route.Status}</span>`;
+          if (route.status) {
+            html += `<span class="route-badge status">${route.status}</span>`;
           }
           html += '</div></div>';
 
           if (orders.length > 0) {
             html += '<table><thead><tr><th>Seq</th><th>Pedido</th><th>Cliente</th><th>Endereço</th><th>Zona</th></tr></thead><tbody>';
-            orders.sort((a, b) => (a.SeqNumber || 0) - (b.SeqNumber || 0));
+            orders.sort((a, b) => (a.seq || 0) - (b.seq || 0));
             orders.forEach(order => {
               html += `<tr>
-                <td>${order.SeqNumber || '-'}</td>
-                <td><strong>${order.Number}</strong></td>
-                <td>${order.Client || 'N/A'}</td>
-                <td>${order.Address || 'N/A'}</td>
-                <td>${order.AddressZone || 'N/A'}</td>
+                <td>${order.seq || '-'}</td>
+                <td><strong>${order.number}</strong></td>
+                <td>${order.client || 'N/A'}</td>
+                <td>${order.address || 'N/A'}</td>
+                <td>${order.zone || 'N/A'}</td>
               </tr>`;
             });
             html += '</tbody></table>';
@@ -383,7 +364,7 @@
         <div style="background:#fed7d7;border-left:4px solid #f56565;padding:20px;border-radius:8px;">
           <h3>❌ Erro ao Carregar Dados</h3>
           <p>${message}</p>
-          <p style="margin-top:10px;">Verifique a conexão com a API do Track-POD.</p>
+          <p style="margin-top:10px;">Verifique se o workflow "API Relatório Track-POD" está ativo no n8n.</p>
         </div>
       </div>`;
     }
