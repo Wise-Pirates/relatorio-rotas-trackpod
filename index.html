@@ -49,7 +49,12 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
     }
-    .refresh-btn {
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .refresh-btn, .history-btn {
       background: #667eea;
       color: white;
       border: none;
@@ -58,7 +63,15 @@
       cursor: pointer;
       font-size: 14px;
     }
-    .refresh-btn:hover { background: #5a67d8; }
+    .refresh-btn:hover, .history-btn:hover { background: #5a67d8; }
+    .history-btn { background: #4a5568; }
+    .history-btn:hover { background: #2d3748; }
+    .date-selector {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -191,6 +204,21 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    .history-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .history-item {
+      background: #edf2f7;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .history-item:hover { background: #e2e8f0; }
+    .history-item.active { background: #667eea; color: white; }
   </style>
 </head>
 <body>
@@ -202,7 +230,12 @@
           <div class="status-indicator" id="statusIndicator"></div>
           <span id="statusText">Carregando...</span>
         </div>
-        <button class="refresh-btn" onclick="fetchReport()">🔄 Atualizar</button>
+        <div class="btn-group">
+          <select id="dateSelector" class="date-selector" onchange="loadHistoryReport()">
+            <option value="latest">Hoje (Atual)</option>
+          </select>
+          <button class="refresh-btn" onclick="fetchReport()">🔄 Atualizar</button>
+        </div>
       </div>
     </div>
     <div id="content">
@@ -216,6 +249,8 @@
   </div>
   <script>
     const REPORT_URL = './latest-report.json';
+    const HISTORY_URL = './history/';
+
     async function fetchReport() {
       console.log('🔄 Atualizando relatório...');
       const statusIndicator = document.getElementById('statusIndicator');
@@ -229,6 +264,7 @@
         renderReport(log);
         statusIndicator.className = 'status-indicator';
         statusText.textContent = 'Última atualização: ' + (log.meta?.execution_timestamp || 'agora');
+        loadHistoryDates();
       } catch (error) {
         console.error('Erro:', error);
         showError(error.message);
@@ -236,27 +272,71 @@
         statusText.textContent = 'Erro ao carregar';
       }
     }
+
+    async function loadHistoryDates() {
+      try {
+        const response = await fetch('./history/index.json?t=' + Date.now());
+        if (response.ok) {
+          const dates = await response.json();
+          const selector = document.getElementById('dateSelector');
+          selector.innerHTML = '<option value="latest">Hoje (Atual)</option>';
+          dates.forEach(date => {
+            selector.innerHTML += '<option value="' + date + '">' + date + '</option>';
+          });
+        }
+      } catch (e) {
+        console.log('Histórico não disponível');
+      }
+    }
+
+    async function loadHistoryReport() {
+      const selector = document.getElementById('dateSelector');
+      const date = selector.value;
+
+      if (date === 'latest') {
+        fetchReport();
+        return;
+      }
+
+      try {
+        const response = await fetch('./history/' + date + '.json?t=' + Date.now());
+        if (response.ok) {
+          const log = await response.json();
+          renderReport(log);
+          document.getElementById('statusText').textContent = 'Relatório de ' + date;
+        }
+      } catch (e) {
+        showError('Erro ao carregar histórico: ' + date);
+      }
+    }
+
     function renderReport(log) {
       const content = document.getElementById('content');
       const summary = log.summary || {};
       const aiDecisions = log.ai_decisions || {};
       const orderDetails = log.order_details || [];
-      const operations = log.trackpod_operations || [];
       const errors = log.errors || [];
+
       let html = '<div class="stats-grid">';
       html += '<div class="stat-card"><div class="stat-value">' + orderDetails.length + '</div><div class="stat-label">Pedidos Processados</div></div>';
       html += '<div class="stat-card"><div class="stat-value">' + (summary.total_routes_created || 0) + '</div><div class="stat-label">Rotas Criadas</div></div>';
       html += '<div class="stat-card"><div class="stat-value">' + (summary.total_routes_updated || 0) + '</div><div class="stat-label">Rotas Atualizadas</div></div>';
       html += '<div class="stat-card"><div class="stat-value ' + (errors.length > 0 ? 'error' : 'success') + '">' + errors.length + '</div><div class="stat-label">Erros</div></div>';
       html += '</div>';
-      if (aiDecisions.model_used) {
+
+      if (aiDecisions.timestamp) {
         html += '<div class="section"><div class="ai-info">Processado em ' + aiDecisions.timestamp + '</div></div>';
       }
+
+      // Rotas Criadas - TODAS
       if (aiDecisions.routes_created && aiDecisions.routes_created.length > 0) {
         html += '<div class="section"><h2 class="section-title">✅ Rotas Criadas (' + aiDecisions.routes_created.length + ')</h2>';
         aiDecisions.routes_created.forEach(route => {
           html += '<div class="route-card"><div class="route-header"><div class="route-code">🚐 ' + route.route_code + '</div><div class="route-badge">📦 ' + (route.orders_count || route.orders?.length || 0) + ' pedidos</div></div>';
-          html += '<p style="color:#4a5568;margin-bottom:12px;"><strong>Razão:</strong> ' + route.reason + '</p><div>';
+          if (route.reason) {
+            html += '<p style="color:#4a5568;margin-bottom:12px;"><strong>Razão:</strong> ' + route.reason + '</p>';
+          }
+          html += '<div>';
           (route.orders || []).forEach(order => {
             html += '<span class="order-badge">' + (typeof order === 'string' ? order : order.Number || order.number) + '</span>';
           });
@@ -264,8 +344,26 @@
         });
         html += '</div>';
       }
+
+      // Rotas Atualizadas - TODAS
+      if (aiDecisions.routes_updated && aiDecisions.routes_updated.length > 0) {
+        html += '<div class="section"><h2 class="section-title">🔄 Rotas Atualizadas (' + aiDecisions.routes_updated.length + ')</h2>';
+        aiDecisions.routes_updated.forEach(route => {
+          html += '<div class="route-card"><div class="route-header"><div class="route-code">🚐 ' + route.route_code + '</div><div class="route-badge">➕ ' + (route.orders_added || route.orders_to_add?.length || 0) + ' pedidos adicionados</div></div>';
+          if (route.orders_to_add && route.orders_to_add.length > 0) {
+            html += '<div>';
+            route.orders_to_add.forEach(order => {
+              html += '<span class="order-badge">' + (typeof order === 'string' ? order : order.Number || order.number) + '</span>';
+            });
+            html += '</div>';
+          }
+          html += '</div>';
+        });
+        html += '</div>';
+      }
+
+      // Detalhamento de Pedidos - TODOS (sem limite)
       if (orderDetails.length > 0) {
-        // Agrupar pedidos por rota
         const ordersByRoute = {};
         orderDetails.forEach(order => {
           const route = order.route_assigned || 'Sem Rota';
@@ -277,7 +375,6 @@
 
         html += '<div class="section"><h2 class="section-title">📋 Detalhamento de Pedidos (' + orderDetails.length + ' total)</h2>';
 
-        // Ordenar rotas alfabeticamente
         const sortedRoutes = Object.keys(ordersByRoute).sort();
 
         sortedRoutes.forEach(route => {
@@ -285,29 +382,34 @@
           html += '<div class="route-card">';
           html += '<div class="route-header"><div class="route-code">🚐 ' + route + '</div><div class="route-badge">📦 ' + routeOrders.length + ' pedidos</div></div>';
           html += '<table style="margin-top:10px;"><thead><tr><th>Pedido</th><th>Cliente</th><th>Zona</th><th>Ação</th></tr></thead><tbody>';
+          // TODOS os pedidos - sem limite
           routeOrders.forEach(order => {
-            html += '<tr><td><strong>' + order.order_number + '</strong></td><td>' + (order.client || 'N/A') + '</td><td>' + (order.zone || order.address_zone || 'N/A') + '</td><td><span class="success">' + order.action + '</span></td></tr>';
+            html += '<tr><td><strong>' + order.order_number + '</strong></td><td>' + (order.client || 'N/A') + '</td><td>' + (order.zone || order.address_zone || 'N/A') + '</td><td><span class="success">' + (order.action || 'processado') + '</span></td></tr>';
           });
           html += '</tbody></table></div>';
         });
 
         html += '</div>';
       }
-      // Seção "Operações no Track-POD" removida
+
+      // Erros
       if (errors.length > 0) {
         html += '<div class="section"><h2 class="section-title">❌ Erros (' + errors.length + ')</h2>';
         errors.forEach(error => {
-          html += '<div style="background:#fed7d7;border-left:4px solid #f56565;padding:15px;border-radius:6px;margin-bottom:10px;"><strong>Rota ' + error.route + ':</strong> ' + error.error + '</div>';
+          html += '<div style="background:#fed7d7;border-left:4px solid #f56565;padding:15px;border-radius:6px;margin-bottom:10px;"><strong>Rota ' + (error.route || 'N/A') + ':</strong> ' + (error.error || error.message || 'Erro desconhecido') + '</div>';
         });
         html += '</div>';
       }
+
       html += '<div class="footer"><p>🤖 Sistema Automatizado de Otimização de Rotas</p><p>Powered by n8n + OpenAI + Track-POD</p></div>';
       content.innerHTML = html;
     }
+
     function showError(message) {
       const content = document.getElementById('content');
       content.innerHTML = '<div class="section"><div style="background:#fed7d7;border-left:4px solid #f56565;padding:20px;border-radius:8px;"><h3>❌ Erro ao Carregar Relatório</h3><p>' + message + '</p><p style="margin-top:10px;">Verifique se o arquivo <code>latest-report.json</code> existe.</p></div></div>';
     }
+
     fetchReport();
     setInterval(fetchReport, 30000);
   </script>
