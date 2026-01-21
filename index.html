@@ -249,7 +249,7 @@
       html += '<div class="stat-card"><div class="stat-value ' + (errors.length > 0 ? 'error' : 'success') + '">' + errors.length + '</div><div class="stat-label">Erros</div></div>';
       html += '</div>';
       if (aiDecisions.model_used) {
-        html += '<div class="section"><div class="ai-info"><strong>🤖 Decisão da IA:</strong> Modelo ' + aiDecisions.model_used + ' • Processado em ' + aiDecisions.timestamp + '</div></div>';
+        html += '<div class="section"><div class="ai-info">Processado em ' + aiDecisions.timestamp + '</div></div>';
       }
       if (aiDecisions.routes_created && aiDecisions.routes_created.length > 0) {
         html += '<div class="section"><h2 class="section-title">✅ Rotas Criadas (' + aiDecisions.routes_created.length + ')</h2>';
