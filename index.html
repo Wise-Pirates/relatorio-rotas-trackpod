@@ -265,14 +265,32 @@
         html += '</div>';
       }
       if (orderDetails.length > 0) {
-        html += '<div class="section"><h2 class="section-title">📋 Detalhamento de Pedidos</h2><table><thead><tr><th>Pedido</th><th>Cliente</th><th>Zona</th><th>Rota</th><th>Ação</th></tr></thead><tbody>';
-        orderDetails.slice(0, 20).forEach(order => {
-          html += '<tr><td><strong>' + order.order_number + '</strong></td><td>' + (order.client || 'N/A') + '</td><td>' + (order.zone || order.address_zone || 'N/A') + '</td><td><strong>' + order.route_assigned + '</strong></td><td><span class="success">' + order.action + '</span></td></tr>';
+        // Agrupar pedidos por rota
+        const ordersByRoute = {};
+        orderDetails.forEach(order => {
+          const route = order.route_assigned || 'Sem Rota';
+          if (!ordersByRoute[route]) {
+            ordersByRoute[route] = [];
+          }
+          ordersByRoute[route].push(order);
         });
-        html += '</tbody></table>';
-        if (orderDetails.length > 20) {
-          html += '<p style="text-align:center;color:#718096;margin-top:15px;">... e mais ' + (orderDetails.length - 20) + ' pedido(s)</p>';
-        }
+
+        html += '<div class="section"><h2 class="section-title">📋 Detalhamento de Pedidos (' + orderDetails.length + ' total)</h2>';
+
+        // Ordenar rotas alfabeticamente
+        const sortedRoutes = Object.keys(ordersByRoute).sort();
+
+        sortedRoutes.forEach(route => {
+          const routeOrders = ordersByRoute[route];
+          html += '<div class="route-card">';
+          html += '<div class="route-header"><div class="route-code">🚐 ' + route + '</div><div class="route-badge">📦 ' + routeOrders.length + ' pedidos</div></div>';
+          html += '<table style="margin-top:10px;"><thead><tr><th>Pedido</th><th>Cliente</th><th>Zona</th><th>Ação</th></tr></thead><tbody>';
+          routeOrders.forEach(order => {
+            html += '<tr><td><strong>' + order.order_number + '</strong></td><td>' + (order.client || 'N/A') + '</td><td>' + (order.zone || order.address_zone || 'N/A') + '</td><td><span class="success">' + order.action + '</span></td></tr>';
+          });
+          html += '</tbody></table></div>';
+        });
+
         html += '</div>';
       }
       if (operations.length > 0) {
