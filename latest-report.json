@@ -1,31 +1,45 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-21 11:40:30",
+    "execution_timestamp": "2026-01-21 12:29:10",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
     "process_date": "2026-01-21",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57568",
+    "execution_id": "57570",
     "first_execution": "2026-01-21 10:28:49"
   },
   "summary": {
-    "total_routes_created": 0,
+    "total_routes_created": 1,
     "total_routes_updated": 2,
-    "total_orders_processed": 7,
+    "total_orders_processed": 10,
     "total_errors": 0,
-    "by_region": {},
+    "by_region": {
+      "Lisboa": 1
+    },
     "by_zone": {
       "Saldanha": 1,
       "Lisboa Centro": 1,
       "Unknown": 4,
-      "Lisboa": 1
+      "Lisboa": 1,
+      "Baixa": 3
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-21 11:40:30",
-    "routes_created": [],
+    "timestamp": "2026-01-21 12:29:10",
+    "routes_created": [
+      {
+        "route_code": "LIS-NEW-01",
+        "orders_count": 3,
+        "orders": [
+          "LIS-HOJE-033",
+          "LIS-HOJE-032",
+          "LIS-HOJE-031"
+        ],
+        "reason": "Nova rota criada"
+      }
+    ],
     "routes_updated": [
       {
         "route_code": "LIS-01",
@@ -114,6 +128,33 @@
       "route_assigned": "LIS-01",
       "action": "added_to_existing_route",
       "timestamp": "2026-01-21 11:21:03"
+    },
+    {
+      "order_number": "LIS-HOJE-033",
+      "client": "Cliente Teste Hoje 3",
+      "address": "Rua da Conceição 25, Lisboa",
+      "zone": "Baixa",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 12:29:10"
+    },
+    {
+      "order_number": "LIS-HOJE-032",
+      "client": "Cliente Teste Hoje 2",
+      "address": "Rua dos Correeiros 80, Lisboa",
+      "zone": "Baixa",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 12:29:10"
+    },
+    {
+      "order_number": "LIS-HOJE-031",
+      "client": "Cliente Teste Hoje 1",
+      "address": "Rua do Ouro 100, Lisboa",
+      "zone": "Baixa",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 12:29:10"
     }
   ],
   "trackpod_operations": [
@@ -233,6 +274,15 @@
       "response_code": "Draft",
       "response_message": "OK",
       "timestamp": "2026-01-21 11:40:30"
+    },
+    {
+      "operation": "POST",
+      "route_code": "LIS-NEW-01",
+      "order_number": null,
+      "status": 201,
+      "response_code": 201,
+      "response_message": "Route was created successfully",
+      "timestamp": "2026-01-21 12:29:10"
     }
   ],
   "errors": [],
