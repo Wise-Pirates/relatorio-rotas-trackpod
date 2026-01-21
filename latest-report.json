@@ -1,18 +1,18 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-21 14:16:44",
+    "execution_timestamp": "2026-01-21 14:36:10",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
     "process_date": "2026-01-21",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57574",
+    "execution_id": "57576",
     "first_execution": "2026-01-21 10:28:49"
   },
   "summary": {
     "total_routes_created": 1,
     "total_routes_updated": 3,
-    "total_orders_processed": 11,
+    "total_orders_processed": 12,
     "total_errors": 0,
     "by_region": {
       "Lisboa": 1
@@ -20,14 +20,14 @@
     "by_zone": {
       "Saldanha": 1,
       "Lisboa Centro": 1,
-      "Unknown": 5,
+      "Unknown": 6,
       "Lisboa": 1,
       "Baixa": 3
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-21 14:16:44",
+    "timestamp": "2026-01-21 14:36:10",
     "routes_created": [
       {
         "route_code": "LIS-NEW-01",
@@ -55,10 +55,11 @@
       },
       {
         "route_code": "NRT-01",
-        "orders_added": 2,
+        "orders_added": 3,
         "orders_to_add": [
           "TEST-019",
-          "TEST-008"
+          "TEST-008",
+          "TESTE-CLAUD004"
         ],
         "reason": "Pedidos adicionados à rota existente"
       },
@@ -172,6 +173,15 @@
       "route_assigned": "LIS-NEW-01",
       "action": "added_to_existing_route",
       "timestamp": "2026-01-21 14:16:44"
+    },
+    {
+      "order_number": "TESTE-CLAUD004",
+      "client": "Cliente Braga",
+      "address": "Avenida da Liberdade 300, Braga",
+      "zone": "",
+      "route_assigned": "NRT-01",
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 14:36:10"
     }
   ],
   "trackpod_operations": [
@@ -309,6 +319,15 @@
       "response_code": 202,
       "response_message": "Order was moved successfully",
       "timestamp": "2026-01-21 14:16:44"
+    },
+    {
+      "operation": "PUT",
+      "route_code": "NRT-01",
+      "order_number": "TESTE-CLAUD004",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 14:36:10"
     }
   ],
   "errors": [],
