@@ -217,10 +217,11 @@
   <script>
     const REPORT_URL = './latest-report.json';
     async function fetchReport() {
+      console.log('🔄 Atualizando relatório...');
       const statusIndicator = document.getElementById('statusIndicator');
       const statusText = document.getElementById('statusText');
       statusIndicator.className = 'status-indicator loading';
-      statusText.textContent = 'Buscando relatório...';
+      statusText.textContent = 'Atualizando...';
       try {
         const response = await fetch(REPORT_URL + '?t=' + Date.now());
         if (!response.ok) throw new Error('HTTP ' + response.status);
