@@ -1,12 +1,12 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-21 10:54:02",
+    "execution_timestamp": "2026-01-21 11:08:28",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
     "process_date": "2026-01-21",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57536",
+    "execution_id": "57546",
     "first_execution": "2026-01-21 10:28:49"
   },
   "summary": {
@@ -24,7 +24,7 @@
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-21 10:54:02",
+    "timestamp": "2026-01-21 11:08:28",
     "routes_created": [],
     "routes_updated": [
       {
@@ -141,6 +141,24 @@
       "response_code": 202,
       "response_message": "Order was moved successfully",
       "timestamp": "2026-01-21 10:54:02"
+    },
+    {
+      "operation": "GET",
+      "route_code": "UNKNOWN",
+      "order_number": null,
+      "status": "Draft",
+      "response_code": "Draft",
+      "response_message": "OK",
+      "timestamp": "2026-01-21 11:08:28"
+    },
+    {
+      "operation": "UNKNOWN",
+      "route_code": "UNKNOWN",
+      "order_number": null,
+      "status": "Draft",
+      "response_code": "Draft",
+      "response_message": "OK",
+      "timestamp": "2026-01-21 11:08:28"
     }
   ],
   "errors": [],
