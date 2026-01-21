@@ -1,33 +1,36 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-21 15:42:39",
+    "execution_timestamp": "2026-01-21 17:39:39",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
     "process_date": "2026-01-21",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57616",
+    "execution_id": "57684",
     "first_execution": "2026-01-21 10:28:49"
   },
   "summary": {
-    "total_routes_created": 1,
+    "total_routes_created": 3,
     "total_routes_updated": 3,
-    "total_orders_processed": 11,
+    "total_orders_processed": 20,
     "total_errors": 0,
     "by_region": {
-      "Lisboa": 1
+      "Lisboa": 2,
+      "Norte": 1
     },
     "by_zone": {
       "Saldanha": 1,
       "Lisboa Centro": 1,
-      "Unknown": 5,
+      "Unknown": 12,
       "Lisboa": 1,
-      "Baixa": 3
+      "Baixa": 3,
+      "Oeiras": 1,
+      "Cascais": 1
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-21 15:42:39",
+    "timestamp": "2026-01-21 17:39:39",
     "routes_created": [
       {
         "route_code": "LIS-NEW-01",
@@ -36,6 +39,25 @@
           "LIS-HOJE-033",
           "LIS-HOJE-032",
           "LIS-HOJE-031"
+        ],
+        "reason": "Nova rota criada"
+      },
+      {
+        "route_code": "LIS-NEW-02",
+        "orders_count": 4,
+        "orders": [
+          "TEST-020",
+          "TEST-018",
+          "TEST-022",
+          "TEST-012"
+        ],
+        "reason": "Nova rota criada"
+      },
+      {
+        "route_code": "NRT-02",
+        "orders_count": 1,
+        "orders": [
+          "TEST-017"
         ],
         "reason": "Nova rota criada"
       }
@@ -64,9 +86,13 @@
       },
       {
         "route_code": "LIS-NEW-01",
-        "orders_added": 1,
+        "orders_added": 5,
         "orders_to_add": [
-          "TEST-026"
+          "TEST-026",
+          "TESTE-CLAUD003",
+          "TESTE-CLAUD002",
+          "TESTE-CLAUD001",
+          "TEST-021"
         ],
         "reason": "Pedidos adicionados à rota existente"
       }
@@ -172,6 +198,84 @@
       "route_assigned": "LIS-NEW-01",
       "action": "added_to_existing_route",
       "timestamp": "2026-01-21 14:16:44"
+    },
+    {
+      "order_number": "TESTE-CLAUD003",
+      "client": "Cliente Vila Franca",
+      "address": "Avenida Central 200, Vila Franca de Xira",
+      "zone": "",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TESTE-CLAUD002",
+      "client": "Cliente Mafra",
+      "address": "Rua Principal 50, Mafra",
+      "zone": "",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TESTE-CLAUD001",
+      "client": "Cliente Odivelas",
+      "address": "Rua de Odivelas 100, Odivelas",
+      "zone": "",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TEST-021",
+      "client": "Cliente Setubal",
+      "address": "Avenida Luisa Todi 200, Setubal",
+      "zone": "",
+      "route_assigned": "LIS-NEW-01",
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TEST-020",
+      "client": "Cliente Almada",
+      "address": "Avenida 25 de Abril 100, Almada",
+      "route_assigned": "LIS-NEW-02",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TEST-018",
+      "client": "Cliente Gaia",
+      "address": "Avenida da Republica 200, Vila Nova de Gaia",
+      "route_assigned": "LIS-NEW-02",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TEST-022",
+      "client": "Cliente Oeiras",
+      "address": "Avenida Marginal 500, Oeiras",
+      "zone": "Oeiras",
+      "route_assigned": "LIS-NEW-02",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TEST-012",
+      "client": "Cliente Cascais",
+      "address": "Avenida Marginal 300, Cascais",
+      "zone": "Cascais",
+      "route_assigned": "LIS-NEW-02",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "order_number": "TEST-017",
+      "client": "Cliente Matosinhos",
+      "address": "Rua Heróis de Franca 50, Matosinhos",
+      "route_assigned": "NRT-02",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-21 17:39:39"
     }
   ],
   "trackpod_operations": [
@@ -363,6 +467,60 @@
       "response_code": "Draft",
       "response_message": "OK",
       "timestamp": "2026-01-21 15:42:39"
+    },
+    {
+      "operation": "PUT",
+      "route_code": "LIS-NEW-01",
+      "order_number": "TESTE-CLAUD003",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "operation": "PUT",
+      "route_code": "LIS-NEW-01",
+      "order_number": "TESTE-CLAUD002",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "operation": "PUT",
+      "route_code": "LIS-NEW-01",
+      "order_number": "TESTE-CLAUD001",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "operation": "PUT",
+      "route_code": "LIS-NEW-01",
+      "order_number": "TEST-021",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "operation": "POST",
+      "route_code": "LIS-NEW-02",
+      "order_number": null,
+      "status": 201,
+      "response_code": 201,
+      "response_message": "Route was created successfully",
+      "timestamp": "2026-01-21 17:39:39"
+    },
+    {
+      "operation": "POST",
+      "route_code": "NRT-02",
+      "order_number": null,
+      "status": 201,
+      "response_code": 201,
+      "response_message": "Route was created successfully",
+      "timestamp": "2026-01-21 17:39:39"
     }
   ],
   "errors": [],
