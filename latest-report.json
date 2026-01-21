@@ -1,60 +1,79 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-21 09:46:06",
+    "execution_timestamp": "2026-01-21 10:01:25",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
     "process_date": "2026-01-21",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57523"
+    "execution_id": "57526"
   },
   "summary": {
-    "total_routes_created": 1,
-    "total_routes_updated": 0,
+    "total_routes_created": 0,
+    "total_routes_updated": 1,
     "total_errors": 0,
     "by_region": {
       "Lisboa": 1
     },
     "by_zone": {
-      "Baixa Lisboa": 1
+      "Baixa Lisboa": 2
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-21 09:46:06",
-    "routes_created": [
+    "timestamp": "2026-01-21 10:01:25",
+    "routes_created": [],
+    "routes_updated": [
       {
         "route_code": "LIS-01",
-        "orders_count": 1,
-        "orders": [
-          "TEST-CLAUDE-001"
+        "orders_added": 2,
+        "orders_to_add": [
+          "TEST-CLAUDE-002",
+          "TEST-CLAUDE-003"
         ],
-        "reason": "Nova rota criada"
+        "reason": "Pedidos adicionados à rota existente"
       }
     ],
-    "routes_updated": [],
     "ai_notes": "Processamento automático"
   },
   "order_details": [
     {
-      "order_number": "TEST-CLAUDE-001",
+      "order_number": "TEST-CLAUDE-002",
       "client": "Cliente Teste",
-      "address": "Rua do Comércio 100, Lisboa",
+      "address": "Rua do teste 101, Lisboa",
       "zone": "Baixa Lisboa",
       "route_assigned": "LIS-01",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 09:46:06"
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 10:01:25"
+    },
+    {
+      "order_number": "TEST-CLAUDE-003",
+      "client": "Cliente Teste",
+      "address": "Rua do teste 101, Lisboa",
+      "zone": "Baixa Lisboa",
+      "route_assigned": "LIS-01",
+      "action": "added_to_existing_route",
+      "timestamp": "2026-01-21 10:01:25"
     }
   ],
   "trackpod_operations": [
     {
-      "operation": "POST",
+      "operation": "PUT",
       "route_code": "LIS-01",
-      "order_number": null,
-      "status": 201,
-      "response_code": 201,
-      "response_message": "Route was created successfully",
-      "timestamp": "2026-01-21 09:46:06"
+      "order_number": "TEST-CLAUDE-002",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 10:01:25"
+    },
+    {
+      "operation": "PUT",
+      "route_code": "LIS-01",
+      "order_number": "TEST-CLAUDE-003",
+      "status": 202,
+      "response_code": 202,
+      "response_message": "Order was moved successfully",
+      "timestamp": "2026-01-21 10:01:25"
     }
   ],
   "errors": [],
