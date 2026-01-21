@@ -1,36 +1,33 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-20 07:00:03",
+    "execution_timestamp": "2026-01-21 09:46:06",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
-    "process_date": "2026-01-20",
+    "process_date": "2026-01-21",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57482"
+    "execution_id": "57523"
   },
   "summary": {
     "total_routes_created": 1,
     "total_routes_updated": 0,
     "total_errors": 0,
     "by_region": {
-      "Other": 1
+      "Lisboa": 1
     },
     "by_zone": {
-      "Porto": 4
+      "Baixa Lisboa": 1
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-20 07:00:03",
+    "timestamp": "2026-01-21 09:46:06",
     "routes_created": [
       {
-        "route_code": "UNKNOWN",
-        "orders_count": 4,
+        "route_code": "LIS-01",
+        "orders_count": 1,
         "orders": [
-          "FINAL-TEST-004",
-          "FINAL-TEST-003",
-          "FINAL-TEST-002",
-          "FINAL-TEST-001"
+          "TEST-CLAUDE-001"
         ],
         "reason": "Nova rota criada"
       }
@@ -40,50 +37,24 @@
   },
   "order_details": [
     {
-      "order_number": "FINAL-TEST-004",
-      "client": "Cliente Final 4",
-      "address": "Praça da Liberdade 400, Porto",
-      "zone": "Porto",
-      "route_assigned": "UNKNOWN",
+      "order_number": "TEST-CLAUDE-001",
+      "client": "Cliente Teste",
+      "address": "Rua do Comércio 100, Lisboa",
+      "zone": "Baixa Lisboa",
+      "route_assigned": "LIS-01",
       "action": "added_to_new_route",
-      "timestamp": "2026-01-20 07:00:03"
-    },
-    {
-      "order_number": "FINAL-TEST-003",
-      "client": "Cliente Final 3",
-      "address": "Rua Santa Catarina 300, Porto",
-      "zone": "Porto",
-      "route_assigned": "UNKNOWN",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-20 07:00:03"
-    },
-    {
-      "order_number": "FINAL-TEST-002",
-      "client": "Cliente Final 2",
-      "address": "Avenida dos Aliados 200, Porto",
-      "zone": "Porto",
-      "route_assigned": "UNKNOWN",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-20 07:00:03"
-    },
-    {
-      "order_number": "FINAL-TEST-001",
-      "client": "Cliente Final 1",
-      "address": "Rua das Flores 100, Porto",
-      "zone": "Porto",
-      "route_assigned": "UNKNOWN",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-20 07:00:03"
+      "timestamp": "2026-01-21 09:46:06"
     }
   ],
   "trackpod_operations": [
     {
       "operation": "POST",
-      "route_code": "UNKNOWN",
+      "route_code": "LIS-01",
       "order_number": null,
-      "status": "unknown",
-      "response_message": "OK",
-      "timestamp": "2026-01-20 07:00:03"
+      "status": 201,
+      "response_code": 201,
+      "response_message": "Route was created successfully",
+      "timestamp": "2026-01-21 09:46:06"
     }
   ],
   "errors": [],
