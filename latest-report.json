@@ -1,552 +1,60 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-21 19:21:56",
+    "execution_timestamp": "2026-01-22 09:53:54",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
-    "process_date": "2026-01-21",
+    "process_date": "2026-01-22",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "57762",
-    "first_execution": "2026-01-21 10:28:49"
+    "execution_id": "57788"
   },
   "summary": {
-    "total_routes_created": 3,
-    "total_routes_updated": 4,
-    "total_orders_processed": 21,
+    "total_routes_created": 0,
+    "total_routes_updated": 1,
     "total_errors": 0,
     "by_region": {
-      "Lisboa": 2,
-      "Norte": 1
+      "Lisboa": 1
     },
     "by_zone": {
-      "Saldanha": 1,
-      "Lisboa Centro": 1,
-      "Unknown": 13,
-      "Lisboa": 1,
-      "Baixa": 3,
-      "Oeiras": 1,
-      "Cascais": 1
+      "Baixa Lisboa": 1
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-21 19:21:56",
-    "routes_created": [
-      {
-        "route_code": "LIS-NEW-01",
-        "orders_count": 3,
-        "orders": [
-          "LIS-HOJE-033",
-          "LIS-HOJE-032",
-          "LIS-HOJE-031"
-        ],
-        "reason": "Nova rota criada"
-      },
-      {
-        "route_code": "LIS-NEW-02",
-        "orders_count": 4,
-        "orders": [
-          "TEST-020",
-          "TEST-018",
-          "TEST-022",
-          "TEST-012"
-        ],
-        "reason": "Nova rota criada"
-      },
-      {
-        "route_code": "NRT-02",
-        "orders_count": 1,
-        "orders": [
-          "TEST-017"
-        ],
-        "reason": "Nova rota criada"
-      }
-    ],
+    "timestamp": "2026-01-22 09:53:54",
+    "routes_created": [],
     "routes_updated": [
       {
-        "route_code": "LIS-01",
-        "orders_added": 5,
-        "orders_to_add": [
-          "TEST-CLAUDE-005",
-          "TEST-CLAUDE-006",
-          "TEST-007",
-          "TEST-024",
-          "TEST-025"
-        ],
-        "reason": "Pedidos adicionados à rota existente"
-      },
-      {
-        "route_code": "NRT-01",
-        "orders_added": 2,
-        "orders_to_add": [
-          "TEST-019",
-          "TEST-008"
-        ],
-        "reason": "Pedidos adicionados à rota existente"
-      },
-      {
-        "route_code": "LIS-NEW-01",
-        "orders_added": 5,
-        "orders_to_add": [
-          "TEST-026",
-          "TESTE-CLAUD003",
-          "TESTE-CLAUD002",
-          "TESTE-CLAUD001",
-          "TEST-021"
-        ],
-        "reason": "Pedidos adicionados à rota existente"
-      },
-      {
-        "route_code": "LIS-NEW-02",
+        "route_code": "LIS-03",
         "orders_added": 1,
         "orders_to_add": [
-          "TEST-FECH-DIA-21"
+          "TESTE-22JAN-001"
         ],
         "reason": "Pedidos adicionados à rota existente"
       }
     ],
-    "ai_notes": "Relatório acumulado do dia"
+    "ai_notes": "Processamento automático"
   },
   "order_details": [
     {
-      "order_number": "TEST-CLAUDE-005",
-      "client": "Cliente Teste Lisboa 2",
-      "address": "Avenida da Liberdade 200, Lisboa",
-      "zone": "Saldanha",
-      "route_assigned": "LIS-01",
+      "order_number": "TESTE-22JAN-001",
+      "client": "Cliente Teste 22 Janeiro",
+      "address": "Rua Augusta 200, Lisboa",
+      "zone": "Baixa Lisboa",
+      "route_assigned": "LIS-03",
       "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 10:28:49"
-    },
-    {
-      "order_number": "TEST-CLAUDE-006",
-      "client": "Teste Acumulacao",
-      "address": "Avenida da Liberdade 100, Lisboa",
-      "zone": "Lisboa Centro",
-      "route_assigned": "LIS-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 10:43:01"
-    },
-    {
-      "order_number": "TEST-019",
-      "client": "Cliente Sintra",
-      "address": "Rua da Serra 50, Sintra",
-      "zone": "",
-      "route_assigned": "NRT-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 10:54:02"
-    },
-    {
-      "order_number": "TEST-008",
-      "client": "Cliente Baixa Lisboa",
-      "address": "Praca do Comercio 50, Lisboa",
-      "zone": "",
-      "route_assigned": "NRT-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 10:54:02"
-    },
-    {
-      "order_number": "TEST-007",
-      "client": "Cliente Lisboa Centro",
-      "address": "Rua Augusta 100, Lisboa",
-      "zone": "Lisboa",
-      "route_assigned": "LIS-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 10:54:02"
-    },
-    {
-      "order_number": "TEST-024",
-      "client": "Cliente Loures",
-      "address": "Rua de Loures 50, Loures",
-      "zone": "",
-      "route_assigned": "LIS-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 11:18:25"
-    },
-    {
-      "order_number": "TEST-025",
-      "client": "Cliente Benfica",
-      "address": "Estrada de Benfica 200, Lisboa",
-      "zone": "",
-      "route_assigned": "LIS-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 11:21:03"
-    },
-    {
-      "order_number": "LIS-HOJE-033",
-      "client": "Cliente Teste Hoje 3",
-      "address": "Rua da Conceição 25, Lisboa",
-      "zone": "Baixa",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 12:29:10"
-    },
-    {
-      "order_number": "LIS-HOJE-032",
-      "client": "Cliente Teste Hoje 2",
-      "address": "Rua dos Correeiros 80, Lisboa",
-      "zone": "Baixa",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 12:29:10"
-    },
-    {
-      "order_number": "LIS-HOJE-031",
-      "client": "Cliente Teste Hoje 1",
-      "address": "Rua do Ouro 100, Lisboa",
-      "zone": "Baixa",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 12:29:10"
-    },
-    {
-      "order_number": "TEST-026",
-      "client": "Cliente Alfragide",
-      "address": "Rua de Alfragide 100, Amadora",
-      "zone": "",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 14:16:44"
-    },
-    {
-      "order_number": "TESTE-CLAUD003",
-      "client": "Cliente Vila Franca",
-      "address": "Avenida Central 200, Vila Franca de Xira",
-      "zone": "",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TESTE-CLAUD002",
-      "client": "Cliente Mafra",
-      "address": "Rua Principal 50, Mafra",
-      "zone": "",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TESTE-CLAUD001",
-      "client": "Cliente Odivelas",
-      "address": "Rua de Odivelas 100, Odivelas",
-      "zone": "",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TEST-021",
-      "client": "Cliente Setubal",
-      "address": "Avenida Luisa Todi 200, Setubal",
-      "zone": "",
-      "route_assigned": "LIS-NEW-01",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TEST-020",
-      "client": "Cliente Almada",
-      "address": "Avenida 25 de Abril 100, Almada",
-      "route_assigned": "LIS-NEW-02",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TEST-018",
-      "client": "Cliente Gaia",
-      "address": "Avenida da Republica 200, Vila Nova de Gaia",
-      "route_assigned": "LIS-NEW-02",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TEST-022",
-      "client": "Cliente Oeiras",
-      "address": "Avenida Marginal 500, Oeiras",
-      "zone": "Oeiras",
-      "route_assigned": "LIS-NEW-02",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TEST-012",
-      "client": "Cliente Cascais",
-      "address": "Avenida Marginal 300, Cascais",
-      "zone": "Cascais",
-      "route_assigned": "LIS-NEW-02",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TEST-017",
-      "client": "Cliente Matosinhos",
-      "address": "Rua Heróis de Franca 50, Matosinhos",
-      "route_assigned": "NRT-02",
-      "action": "added_to_new_route",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "order_number": "TEST-FECH-DIA-21",
-      "client": "Cliente Robson teste",
-      "address": "Rua Afonso de Albuquerque, Sintra",
-      "zone": "",
-      "route_assigned": "LIS-NEW-02",
-      "action": "added_to_existing_route",
-      "timestamp": "2026-01-21 19:21:56"
+      "timestamp": "2026-01-22 09:53:54"
     }
   ],
   "trackpod_operations": [
     {
       "operation": "PUT",
-      "route_code": "LIS-01",
-      "order_number": "TEST-CLAUDE-005",
+      "route_code": "LIS-03",
+      "order_number": "TESTE-22JAN-001",
       "status": 202,
       "response_code": 202,
       "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 10:28:49"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-01",
-      "order_number": "TEST-CLAUDE-006",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 10:43:01"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "NRT-01",
-      "order_number": "TEST-019",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 10:54:02"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "NRT-01",
-      "order_number": "TEST-008",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 10:54:02"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-01",
-      "order_number": "TEST-007",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 10:54:02"
-    },
-    {
-      "operation": "GET",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 11:10:25"
-    },
-    {
-      "operation": "UNKNOWN",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 11:10:25"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-01",
-      "order_number": "TEST-024",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 11:18:25"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-01",
-      "order_number": "TEST-025",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 11:21:03"
-    },
-    {
-      "operation": "GET",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 11:33:43"
-    },
-    {
-      "operation": "UNKNOWN",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 11:33:43"
-    },
-    {
-      "operation": "GET",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 11:40:30"
-    },
-    {
-      "operation": "UNKNOWN",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 11:40:30"
-    },
-    {
-      "operation": "POST",
-      "route_code": "LIS-NEW-01",
-      "order_number": null,
-      "status": 201,
-      "response_code": 201,
-      "response_message": "Route was created successfully",
-      "timestamp": "2026-01-21 12:29:10"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-NEW-01",
-      "order_number": "TEST-026",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 14:16:44"
-    },
-    {
-      "operation": "GET",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 14:40:22"
-    },
-    {
-      "operation": "UNKNOWN",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 14:40:22"
-    },
-    {
-      "operation": "UNKNOWN",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 14:40:22"
-    },
-    {
-      "operation": "GET",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 15:42:39"
-    },
-    {
-      "operation": "UNKNOWN",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 15:42:39"
-    },
-    {
-      "operation": "UNKNOWN",
-      "route_code": "UNKNOWN",
-      "order_number": null,
-      "status": "Draft",
-      "response_code": "Draft",
-      "response_message": "OK",
-      "timestamp": "2026-01-21 15:42:39"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-NEW-01",
-      "order_number": "TESTE-CLAUD003",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-NEW-01",
-      "order_number": "TESTE-CLAUD002",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-NEW-01",
-      "order_number": "TESTE-CLAUD001",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-NEW-01",
-      "order_number": "TEST-021",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "operation": "POST",
-      "route_code": "LIS-NEW-02",
-      "order_number": null,
-      "status": 201,
-      "response_code": 201,
-      "response_message": "Route was created successfully",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "operation": "POST",
-      "route_code": "NRT-02",
-      "order_number": null,
-      "status": 201,
-      "response_code": 201,
-      "response_message": "Route was created successfully",
-      "timestamp": "2026-01-21 17:39:39"
-    },
-    {
-      "operation": "PUT",
-      "route_code": "LIS-NEW-02",
-      "order_number": "TEST-FECH-DIA-21",
-      "status": 202,
-      "response_code": 202,
-      "response_message": "Order was moved successfully",
-      "timestamp": "2026-01-21 19:21:56"
+      "timestamp": "2026-01-22 09:53:54"
     }
   ],
   "errors": [],
