@@ -1,33 +1,34 @@
 {
   "meta": {
-    "execution_timestamp": "2026-01-26 07:00:02",
+    "execution_timestamp": "2026-01-28 07:00:04",
     "workflow_name": "Otimização Automática de Rotas",
     "workflow_version": "1.0.0",
-    "process_date": "2026-01-26",
+    "process_date": "2026-01-28",
     "execution_mode": "automatic",
     "workflow_id": "b1cnZYNAjaJhJ0Z0",
-    "execution_id": "58063"
+    "execution_id": "58337"
   },
   "summary": {
     "total_routes_created": 1,
     "total_routes_updated": 0,
     "total_errors": 0,
     "by_region": {
-      "Other": 1
+      "Lisboa": 1
     },
     "by_zone": {
-      "Unknown": 1
+      "Baixa": 2
     }
   },
   "ai_decisions": {
     "model_used": "gpt-4o",
-    "timestamp": "2026-01-26 07:00:02",
+    "timestamp": "2026-01-28 07:00:04",
     "routes_created": [
       {
-        "route_code": "UNKNOWN",
-        "orders_count": 1,
+        "route_code": "LIS-01",
+        "orders_count": 2,
         "orders": [
-          "EV2506858"
+          "LIS-TEST-201",
+          "LIS-TEST-999"
         ],
         "reason": "Nova rota criada"
       }
@@ -37,22 +38,32 @@
   },
   "order_details": [
     {
-      "order_number": "EV2506858",
-      "client": "Mushegh Huvhannisyan",
-      "address": "1150-321 Lisboa",
-      "route_assigned": "UNKNOWN",
+      "order_number": "LIS-TEST-201",
+      "client": "Cliente Teste - TM/S - 3",
+      "address": "Rua Teste 123, Lisboa",
+      "zone": "Baixa",
+      "route_assigned": "LIS-01",
       "action": "added_to_new_route",
-      "timestamp": "2026-01-26 07:00:02"
+      "timestamp": "2026-01-28 07:00:04"
+    },
+    {
+      "order_number": "LIS-TEST-999",
+      "client": "Cliente Teste",
+      "address": "Rua Teste 123, 1000-001 Lisboa",
+      "zone": "Baixa",
+      "route_assigned": "LIS-01",
+      "action": "added_to_new_route",
+      "timestamp": "2026-01-28 07:00:04"
     }
   ],
   "trackpod_operations": [
     {
       "operation": "POST",
-      "route_code": "UNKNOWN",
+      "route_code": "LIS-01",
       "order_number": null,
       "status": "unknown",
       "response_message": "OK",
-      "timestamp": "2026-01-26 07:00:02"
+      "timestamp": "2026-01-28 07:00:04"
     }
   ],
   "errors": [],
